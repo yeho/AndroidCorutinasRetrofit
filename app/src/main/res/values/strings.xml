@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AppDemo</string>
+    <string name="txt_demo">App Demo de Corutinas y retrofit</string>
+    <string name="txt_dame_click">Test!</string>
+    <string name="projectIcon">Icono</string>
+    <string name="txt_title_no_internet">No hay conecion a Internet</string>
+    <string name="txt_msg_no_internet">Revisa tu conexion e intenta de nuevo</string>
+    <string name="txt_error">Error</string>
+</resources>

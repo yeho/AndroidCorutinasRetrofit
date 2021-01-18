@@ -1,0 +1,24 @@
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
+detekt {
+    failFast = true // fail build on any finding
+    config = files("$rootDir/default-detekt-config.yml")
+    input = files("src/main/java", "src/test/java")
+    //Optional baseline, uncomment & run gradle command detektBaseline to exclude existing issues
+    reports {
+        xml {
+            enabled = false
+            destination = file("$project.projectDir/detekt-report.xml")
+        }
+        html {
+            enabled = true
+            destination = file("destination.html")
+            destination = file("$project.projectDir/detekt-report.html")
+        }
+        txt {
+            enabled = false
+            destination = file("destination.txt")
+        }
+    }
+
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>detekt report</title>
+    <style>
+h2 {
+  background-color: #666666;
+  padding: 0.2em;
+  color: #ffffff;
+}
+h3 {
+  background-color:#f8dfdf;
+  padding:0.5em;
+}
+.rule {
+  background-color: #dddddd;
+  padding: 0.3em;
+  font-weight: bold;
+}
+.description {
+  color:#000000;
+  padding:0.3em;
+}
+.location {
+  color: #690505;
+  font-family: monospace;
+  display: block;
+}
+.message {
+  font-size: 0.8em;
+  color: #444444;
+  display: block;
+  margin-top: 1pt;
+}
+.rule-container {
+  border: 0.1em dashed #dddddd;
+  padding: 0.1em;
+  line-height: 1.5em;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+pre {
+  border: 1px solid #e0e0e0;
+  overflow: scroll;
+}
+.lineno {
+  color: #999999;
+  background-color: #f0f0f0;
+}
+.error {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AwCFR4T/3uLMgAAADxJREFUCNdNyLERQEAABMCjL4lQwIzcjErpguAL+C9AvgKJDbeD/PRpLdm35Hm+MU+cB+tCKaJW4L4YBy+CAiLJrFs9mgAAAABJRU5ErkJggg==) bottom repeat-x;
+}
+.exception {
+  color: #b60808;
+  display: inline-block;
+  background-color: #ecdada;
+  border-color: #b60808;
+  border-radius: 10px;
+  border: solid 2px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 16px;
+}
+</style>
+</head>
+<body>
+
+<h1>detekt report</h1>
+
+<h2>Metrics</h2>
+
+<div>
+  <ul>
+    <li>20 number of properties</li>
+    <li>12 number of functions</li>
+    <li>10 number of classes</li>
+    <li>6 number of packages</li>
+    <li>8 number of kt files</li>
+  </ul>
+</div>
+
+
+<h2>Complexity Report</h2>
+
+<div>
+  <ul>
+    <li>212 lines of code (loc)</li>
+    <li>169 source lines of code (sloc)</li>
+    <li>102 logical lines of code (lloc)</li>
+    <li>5 comment lines of code (cloc)</li>
+    <li>17 cyclomatic complexity (mcc)</li>
+    <li>3 cognitive complexity</li>
+    <li>2 number of total code smells</li>
+    <li>2% comment source ratio</li>
+    <li>166 mcc per 1,000 lloc</li>
+    <li>19 code smells per 1,000 lloc</li>
+  </ul>
+</div>
+
+
+<h2>Findings</h2>
+<div>Total: 2
+  <h3>exceptions: 1</h3>
+  <details id="TooGenericExceptionCaught" open="open">
+    <summary class="rule-container"><span class="rule">TooGenericExceptionCaught: 1 </span><span class="description">Caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled.</span></summary>
+    <ul>
+      <li><span class="location">/Users/yeho/Documents/APPS/HolaMundo/app/src/main/java/com/yeho/holamundo/ui/MainActivity.kt:27:18</span><span class="message">Caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled.</span>
+        <pre><code><span class="lineno">  24 </span>        try {
+<span class="lineno">  25 </span>            val intent = Intent(this, DetalleActivity::class.java)
+<span class="lineno">  26 </span>            startActivity(intent)
+<span class="lineno">  27 </span>        } catch (<span class="error">e: Exception</span>) {
+<span class="lineno">  28 </span>            Log.wtf(&quot;YEHO&quot;, &quot;msg:&quot;+ e.message)
+<span class="lineno">  29 </span>        }
+<span class="lineno">  30 </span>    }
+</code></pre>
+      </li>
+    </ul>
+  </details>
+  <h3>style: 1</h3>
+  <details id="WildcardImport" open="open">
+    <summary class="rule-container"><span class="rule">WildcardImport: 1 </span><span class="description">Wildcard imports should be replaced with imports using fully qualified class names. Wildcard imports can lead to naming conflicts. A library update can introduce naming clashes with your classes which results in compilation errors.</span></summary>
+    <ul>
+      <li><span class="location">/Users/yeho/Documents/APPS/HolaMundo/app/src/main/java/com/yeho/holamundo/ui/DetalleActivity.kt:14:1</span><span class="message">kotlinx.coroutines.* is a wildcard import. Replace it with fully qualified imports.</span>
+        <pre><code><span class="lineno">  11 </span>import com.yeho.holamundo.api.RepositoryRetriever
+<span class="lineno">  12 </span>import com.yeho.holamundo.databinding.ActivityDetalleBinding
+<span class="lineno">  13 </span>import com.yeho.holamundo.ui.adapters.RepoListAdapter
+<span class="lineno">  14 </span><span class="error">import kotlinx.coroutines.*</span>
+<span class="lineno">  15 </span>
+<span class="lineno">  16 </span>private lateinit var binding: ActivityDetalleBinding
+<span class="lineno">  17 </span>private lateinit var  context: Context
+</code></pre>
+      </li>
+    </ul>
+  </details>
+</div>
+
+
+generated with <a href="https://arturbosch.github.io/detekt">detekt version 1.15.0</a> on 2021-01-14 01:19:29 UTC.
+
+</body>
+</html>
